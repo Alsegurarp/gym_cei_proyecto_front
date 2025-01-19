@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import './CrearRutinaForm.css'; // Asegúrate de importar tu archivo CSS aquí
 
 function CrearRutinaForm() {
   const [formData, setFormData] = useState({

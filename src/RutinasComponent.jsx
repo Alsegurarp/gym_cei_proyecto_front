@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import Modal from "./Modal";
+import './RutinasComponent.css'; // Asegúrate de importar tu archivo CSS aquí
 
 function RutinasComponent() {
   const [rutinas, setRutinas] = useState([]);
   const [loading, setLoading] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [rutinaToEdit, setRutinaToEdit] = useState(null);git 
+  const [rutinaToEdit, setRutinaToEdit] = useState(null);
 
   useEffect(() => {
     fetch("/rutinas")
@@ -28,8 +29,7 @@ function RutinasComponent() {
 
   const handleUpdate = async (rutina) => {
     console.log("Item a actualizar (antes del envío):", JSON.stringify(rutina));
-    
-    // Convertir ejercicios a lista separada por comas
+
     if (rutina.ejercicios) {
       rutina.ejercicios = rutina.ejercicios.split("\n").map((e) => e.trim()).join(", ");
     }
