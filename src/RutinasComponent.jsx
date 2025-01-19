@@ -5,10 +5,10 @@ function RutinasComponent() {
   const [rutinas, setRutinas] = useState([]);
   const [loading, setLoading] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [rutinaToEdit, setRutinaToEdit] = useState(null);
+  const [rutinaToEdit, setRutinaToEdit] = useState(null);git 
 
   useEffect(() => {
-    fetch("https://gym-cei-proyecto.onrender.com/rutinas")
+    fetch("/rutinas")
       .then((response) => response.json())
       .then((data) => {
         setRutinas(data);
@@ -35,7 +35,7 @@ function RutinasComponent() {
     }
 
     try {
-      const response = await fetch(`https://gym-cei-proyecto.onrender.com/rutinas/actualizar/${rutina.id}`, {
+      const response = await fetch(`/rutinas/actualizar/${rutina.id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -65,7 +65,7 @@ function RutinasComponent() {
 
   const handleDelete = async (id) => {
     try {
-      const response = await fetch(`https://gym-cei-proyecto.onrender.com/rutinas/${id}`, {
+      const response = await fetch(`/rutinas/${id}`, {
         method: "DELETE",
       });
 
